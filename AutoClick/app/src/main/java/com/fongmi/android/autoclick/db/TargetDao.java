@@ -1,0 +1,23 @@
+package com.fongmi.android.autoclick.db;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
+
+import com.fongmi.android.autoclick.model.Target;
+
+import java.util.List;
+
+@Dao
+public abstract class TargetDao {
+
+	@Query("SELECT * FROM target")
+	public abstract List<Target> getAll();
+
+	@Query("DELETE FROM target WHERE id = :id")
+	public abstract void delete(int id);
+
+	@Insert(onConflict = OnConflictStrategy.IGNORE)
+	public abstract void insert(Target item);
+}
