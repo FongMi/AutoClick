@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">自动点击</string>
+    <string name="app_choose">选择…</string>
+    <string name="setting_boot">开机自启动</string>
+    <string name="setting_keyword">关键字</string>
+    <string name="dialog_positive">确定</string>
+    <string name="dialog_negative">取消</string>
+    <string name="accessibility_desc">请选择应用程式并输入「关键字」\n\n需要应用程式在开机后启动请勾选「开机自启动」</string>
+
+</resources>

@@ -1,10 +1,11 @@
 <resources>
 
-    <string name="app_name">自動點擊</string>
-    <string name="app_choose">選擇…</string>
-    <string name="setting_boot">開機自啟動</string>
-    <string name="setting_keyword">關鍵字</string>
-    <string name="dialog_positive">確定</string>
-    <string name="dialog_negative">取消</string>
+    <string name="app_name">Auto Click</string>
+    <string name="app_choose">Choose…</string>
+    <string name="setting_boot">Start on boot</string>
+    <string name="setting_keyword">Keyword</string>
+    <string name="dialog_positive">OK</string>
+    <string name="dialog_negative">Cancel</string>
+    <string name="accessibility_desc">Please select the app and enter the "keywords"\n\nIf you need the app start on boot, please check "Start on boot"</string>
 
 </resources>
