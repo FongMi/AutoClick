@@ -14,20 +14,19 @@ public class AutoService extends AccessibilityService {
 
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
-		List<Target> items = AppDatabase.get().getTargetDao().getAll();
-		for (Target item : items) if (shouldClick(event, item.getPack())) clickWord(item.getKeyword());
+		for (Target item : AppDatabase.get().getTargetDao().getAll()) clickWord(item);
 	}
 
-	private boolean shouldClick(AccessibilityEvent event, String pack) {
-		return event.getPackageName().equals(pack) || event.getPackageName().equals("com.android.systemui");
+	private boolean shouldClick(AccessibilityNodeInfo info, Target item) {
+		return info.getPackageName() != null && (info.getPackageName().equals(item.getPack()) || info.getPackageName().equals("com.android.systemui"));
 	}
 
-	private void clickWord(String word) {
+	private void clickWord(Target item) {
 		try {
-			if (TextUtils.isEmpty(word)) return;
 			if (getRootInActiveWindow() == null) return;
-			List<AccessibilityNodeInfo> list = getRootInActiveWindow().findAccessibilityNodeInfosByText(word);
-			for (AccessibilityNodeInfo item : list) item.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+			if (TextUtils.isEmpty(item.getKeyword())) return;
+			List<AccessibilityNodeInfo> list = getRootInActiveWindow().findAccessibilityNodeInfosByText(item.getKeyword());
+			for (AccessibilityNodeInfo info : list) if (shouldClick(info, item)) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
