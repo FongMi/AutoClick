@@ -15,6 +15,9 @@ public abstract class TargetDao {
 	@Query("SELECT * FROM target")
 	public abstract List<Target> getAll();
 
+	@Query("SELECT * FROM target WHERE boot = 1")
+	public abstract List<Target> getBoot();
+
 	@Query("DELETE FROM target WHERE id = :id")
 	public abstract void delete(int id);
 

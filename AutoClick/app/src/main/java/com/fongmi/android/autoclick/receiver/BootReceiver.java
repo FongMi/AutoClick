@@ -13,8 +13,8 @@ public class BootReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		List<Target> items = AppDatabase.get().getTargetDao().getAll();
-		for (Target item : items) if (item.isBoot()) openApp(context, item.getPack());
+		List<Target> items = AppDatabase.get().getTargetDao().getBoot();
+		for (Target item : items) openApp(context, item.getPack());
 	}
 
 	private void openApp(Context context, String pack) {
