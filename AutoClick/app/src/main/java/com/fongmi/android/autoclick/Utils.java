@@ -53,13 +53,14 @@ public class Utils {
 		return prefString != null && prefString.contains(App.get().getPackageName() + "/" + AutoService.class.getName());
 	}
 
-	public static boolean isConnected() {
+	public static boolean isOnline() {
 		ConnectivityManager cm = (ConnectivityManager) App.get().getSystemService(Context.CONNECTIVITY_SERVICE);
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-			return cm.getNetworkCapabilities(cm.getActiveNetwork()) != null;
-		} else {
-			return cm.getActiveNetworkInfo() != null;
-		}
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) return cm.getNetworkCapabilities(cm.getActiveNetwork()) != null;
+		else return cm.getActiveNetworkInfo() != null;
+	}
+
+	public static boolean isOffline() {
+		return !isOnline();
 	}
 }
 

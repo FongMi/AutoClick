@@ -25,9 +25,9 @@ public class AutoService extends AccessibilityService {
 	private void onClick(Target item) {
 		for (AccessibilityNodeInfo info : find(item.getKeyword())) {
 			if (info.getPackageName().equals(item.getPack())) {
-				if (Utils.isConnected()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+				if (Utils.isOnline()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
 			} else if (info.getPackageName().equals("com.android.systemui") && find(item.getName()).size() > 0) {
-				if (Utils.isConnected()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+				if (Utils.isOnline()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
 			}
 		}
 	}
