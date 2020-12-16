@@ -2,10 +2,18 @@
 
     <string name="app_name">Auto Click</string>
     <string name="app_choose">Choose…</string>
-    <string name="setting_boot">Start on boot</string>
-    <string name="setting_keyword">Keyword</string>
+    <string name="app_setting">Settings</string>
+
     <string name="dialog_positive">OK</string>
     <string name="dialog_negative">Cancel</string>
+
+    <string name="choose_boot">Start on boot</string>
+    <string name="choose_keyword">Keyword</string>
+
+    <string name="setting_access">Accessibility</string>
+    <string name="setting_battery">Battery optimization</string>
+    <string name="setting_wifi">Keep Wi-Fi connected</string>
+
     <string name="accessibility_desc">Please select the app and enter the "keywords"\n\nIf you need the app start on boot, please check "Start on boot"</string>
 
 </resources>

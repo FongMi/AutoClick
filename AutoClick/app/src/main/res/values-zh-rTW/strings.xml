@@ -2,10 +2,18 @@
 
     <string name="app_name">自動點擊</string>
     <string name="app_choose">選擇…</string>
-    <string name="setting_boot">開機自啟動</string>
-    <string name="setting_keyword">關鍵字</string>
+    <string name="app_setting">設定</string>
+
     <string name="dialog_positive">確定</string>
     <string name="dialog_negative">取消</string>
+
+    <string name="choose_boot">開機自啟動</string>
+    <string name="choose_keyword">關鍵字</string>
+
+    <string name="setting_access">協助工具</string>
+    <string name="setting_battery">電池最佳化</string>
+    <string name="setting_wifi">保持 Wi-Fi 連線</string>
+
     <string name="accessibility_desc">請選擇應用程式並輸入「關鍵字」\n\n需要應用程式在開機後啟動請勾選「開機自啟動」</string>
 
 </resources>

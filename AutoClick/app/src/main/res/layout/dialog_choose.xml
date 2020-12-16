@@ -9,14 +9,14 @@
         android:id="@+id/boot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/setting_boot"
+        android:text="@string/choose_boot"
         android:textSize="16sp" />
 
     <EditText
         android:id="@+id/keyword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/setting_keyword"
+        android:hint="@string/choose_keyword"
         android:inputType="text"
         android:maxLength="20" />
 

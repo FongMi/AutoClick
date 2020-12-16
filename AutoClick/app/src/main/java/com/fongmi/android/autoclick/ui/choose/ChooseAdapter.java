@@ -1,4 +1,4 @@
-package com.fongmi.android.autoclick.ui.adapter;
+package com.fongmi.android.autoclick.ui.choose;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.databinding.AdapterChooseBinding;
 import com.fongmi.android.autoclick.model.AppInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder> {
@@ -19,8 +19,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 	private List<AppInfo> mItems;
 
 	public ChooseAdapter() {
-		this.mItems = Utils.getApps();
-		AppInfo.Sorter.sort(mItems);
+		this.mItems = new ArrayList<>();
 	}
 
 	public interface OnItemClickListener {
@@ -45,6 +44,13 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 		public void onClick(View view) {
 			mItemClickListener.onItemClick(mItems.get(getLayoutPosition()));
 		}
+	}
+
+	public void addAll(List<AppInfo> items) {
+		mItems.clear();
+		mItems.addAll(items);
+		AppInfo.Sorter.sort(mItems);
+		notifyDataSetChanged();
 	}
 
 	@Override

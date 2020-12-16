@@ -25,7 +25,7 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		registerNetwork();
+		if (Prefers.isKeepWiFi()) registerNetwork();
 	}
 
 	private void registerNetwork() {

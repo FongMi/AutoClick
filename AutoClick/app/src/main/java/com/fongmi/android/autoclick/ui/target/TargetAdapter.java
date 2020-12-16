@@ -1,4 +1,4 @@
-package com.fongmi.android.autoclick.ui.adapter;
+package com.fongmi.android.autoclick.ui.target;
 
 import android.view.LayoutInflater;
 import android.view.View;

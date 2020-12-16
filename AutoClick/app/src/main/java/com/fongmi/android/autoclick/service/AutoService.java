@@ -4,6 +4,8 @@ import android.accessibilityservice.AccessibilityService;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import com.fongmi.android.autoclick.Constant;
+import com.fongmi.android.autoclick.Prefers;
 import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.db.AppDatabase;
 import com.fongmi.android.autoclick.model.Target;
@@ -16,19 +18,27 @@ public class AutoService extends AccessibilityService {
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
 		try {
-			for (Target item : AppDatabase.get().getTargetDao().getAll()) onClick(item);
+			for (Target item : AppDatabase.get().getTargetDao().getAll()) find(item);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void onClick(Target item) {
+	private void find(Target item) {
 		for (AccessibilityNodeInfo info : find(item.getKeyword())) {
 			if (info.getPackageName().equals(item.getPack())) {
-				if (Utils.isOnline()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-			} else if (info.getPackageName().equals("com.android.systemui") && find(item.getName()).size() > 0) {
-				if (Utils.isOnline()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+				onClick(info);
+			} else if (info.getPackageName().equals(Constant.SYSTEM_UI) && find(item.getName()).size() > 0) {
+				onClick(info);
 			}
+		}
+	}
+
+	private void onClick(AccessibilityNodeInfo info) {
+		if (Prefers.isKeepWiFi()) {
+			if (Utils.isOnline()) info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+		} else {
+			info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
 		}
 	}
 

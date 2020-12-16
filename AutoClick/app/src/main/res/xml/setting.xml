@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.preference.Preference
+        android:key="setting_access"
+        android:title="@string/setting_access"
+        app:iconSpaceReserved="false" />
+
+    <androidx.preference.Preference
+        android:key="setting_battery"
+        android:title="@string/setting_battery"
+        app:iconSpaceReserved="false" />
+
+    <androidx.preference.SwitchPreference
+        android:key="setting_wifi"
+        android:title="@string/setting_wifi"
+        app:iconSpaceReserved="false" />
+
+</androidx.preference.PreferenceScreen>

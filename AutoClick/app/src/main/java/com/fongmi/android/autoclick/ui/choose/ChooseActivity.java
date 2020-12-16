@@ -1,8 +1,9 @@
-package com.fongmi.android.autoclick.ui;
+package com.fongmi.android.autoclick.ui.choose;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -12,11 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.fongmi.android.autoclick.R;
 import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.databinding.ActivityChooseBinding;
-import com.fongmi.android.autoclick.databinding.DialogSettingBinding;
+import com.fongmi.android.autoclick.databinding.DialogChooseBinding;
 import com.fongmi.android.autoclick.db.AppDatabase;
 import com.fongmi.android.autoclick.model.AppInfo;
 import com.fongmi.android.autoclick.model.Target;
-import com.fongmi.android.autoclick.ui.adapter.ChooseAdapter;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.OnItemClickListener {
@@ -40,6 +40,7 @@ public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.O
 
 	private void initView() {
 		setRecyclerView();
+		new Handler().postDelayed(() -> mAdapter.addAll(Utils.getApps()), 250);
 	}
 
 	private void initEvent() {
@@ -55,7 +56,7 @@ public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.O
 
 	@Override
 	public void onItemClick(AppInfo item) {
-		DialogSettingBinding binding = DialogSettingBinding.inflate(LayoutInflater.from(this));
+		DialogChooseBinding binding = DialogChooseBinding.inflate(LayoutInflater.from(this));
 		new MaterialAlertDialogBuilder(this).setView(binding.getRoot()).setPositiveButton(R.string.dialog_positive, (dialog, which) -> onSave(item, binding.keyword.getText().toString(), binding.boot.isChecked())).setNegativeButton(R.string.dialog_negative, null).show();
 		Utils.showKeyboard(binding.keyword);
 	}

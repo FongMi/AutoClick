@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fongmi.android.autoclick">
 
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -16,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoClick">
 
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".ui.target.TargetActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +26,12 @@
         </activity>
 
         <activity
-            android:name=".ui.ChooseActivity"
+            android:name=".ui.choose.ChooseActivity"
             android:label="@string/app_choose" />
+
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:label="@string/app_setting" />
 
         <receiver
             android:name=".receiver.BootReceiver"

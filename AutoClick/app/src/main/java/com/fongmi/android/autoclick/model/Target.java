@@ -53,9 +53,9 @@ public class Target {
 
 	public String getInfo() {
 		StringBuilder sb = new StringBuilder();
-		if (isBoot() && getKeyword().length() > 0) sb.append(Utils.getString(R.string.setting_boot)).append(", ").append(Utils.getString(R.string.setting_keyword)).append(" : ").append(getKeyword());
-		else if (getKeyword().length() > 0) sb.append(Utils.getString(R.string.setting_keyword)).append(" : ").append(getKeyword());
-		else if (isBoot()) sb.append(Utils.getString(R.string.setting_boot));
+		if (isBoot() && getKeyword().length() > 0) sb.append(Utils.getString(R.string.choose_boot)).append(", ").append(Utils.getString(R.string.choose_keyword)).append(" : ").append(getKeyword());
+		else if (getKeyword().length() > 0) sb.append(Utils.getString(R.string.choose_keyword)).append(" : ").append(getKeyword());
+		else if (isBoot()) sb.append(Utils.getString(R.string.choose_boot));
 		return sb.toString();
 	}
 }

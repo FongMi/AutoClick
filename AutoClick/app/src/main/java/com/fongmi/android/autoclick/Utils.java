@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.view.inputmethod.InputMethodManager;
@@ -39,13 +40,7 @@ public class Utils {
 	}
 
 	public static void checkSetting() {
-		if (!isServiceEnabled()) openSetting();
-	}
-
-	private static void openSetting() {
-		Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		App.get().startActivity(intent);
+		if (!isServiceEnabled()) openAccessSetting();
 	}
 
 	private static boolean isServiceEnabled() {
@@ -61,6 +56,19 @@ public class Utils {
 
 	public static boolean isOffline() {
 		return !isOnline();
+	}
+
+	public static void openAccessSetting() {
+		Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		App.get().startActivity(intent);
+	}
+
+	public static void openBatterySetting() {
+		Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+		intent.setData(Uri.parse("package:" + App.get().getPackageName()));
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		App.get().startActivity(intent);
 	}
 }
 
