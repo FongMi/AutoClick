@@ -14,8 +14,8 @@ import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.databinding.ActivityChooseBinding;
 import com.fongmi.android.autoclick.databinding.DialogChooseBinding;
 import com.fongmi.android.autoclick.db.AppDatabase;
-import com.fongmi.android.autoclick.model.AppInfo;
-import com.fongmi.android.autoclick.model.Target;
+import com.fongmi.android.autoclick.bean.AppInfo;
+import com.fongmi.android.autoclick.bean.Target;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.OnItemClickListener {

@@ -1,8 +1,11 @@
-package com.fongmi.android.autoclick.model;
+package com.fongmi.android.autoclick.bean;
+
+import android.graphics.drawable.Drawable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.fongmi.android.autoclick.App;
 import com.fongmi.android.autoclick.R;
 import com.fongmi.android.autoclick.Utils;
 
@@ -49,6 +52,14 @@ public class Target {
 
 	public boolean isBoot() {
 		return boot;
+	}
+
+	public Drawable getIcon() {
+		try {
+			return App.get().getPackageManager().getApplicationIcon(getPack());
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public String getInfo() {

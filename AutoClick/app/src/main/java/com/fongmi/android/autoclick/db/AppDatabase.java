@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.fongmi.android.autoclick.App;
-import com.fongmi.android.autoclick.model.Target;
+import com.fongmi.android.autoclick.bean.Target;
 
 @Database(entities = {Target.class}, version = AppDatabase.VERSION, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {

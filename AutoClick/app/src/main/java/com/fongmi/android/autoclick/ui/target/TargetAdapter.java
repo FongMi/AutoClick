@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fongmi.android.autoclick.databinding.AdapterTargetBinding;
 import com.fongmi.android.autoclick.db.AppDatabase;
-import com.fongmi.android.autoclick.model.Target;
+import com.fongmi.android.autoclick.bean.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,5 +63,6 @@ public class TargetAdapter extends RecyclerView.Adapter<TargetAdapter.ViewHolder
 		Target item = mItems.get(position);
 		holder.binding.name.setText(item.getName());
 		holder.binding.info.setText(item.getInfo());
+		holder.binding.icon.setImageDrawable(item.getIcon());
 	}
 }

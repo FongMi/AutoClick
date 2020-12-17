@@ -1,4 +1,4 @@
-package com.fongmi.android.autoclick.model;
+package com.fongmi.android.autoclick.bean;
 
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;

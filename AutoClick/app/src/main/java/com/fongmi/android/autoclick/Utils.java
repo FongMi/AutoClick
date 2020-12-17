@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.fongmi.android.autoclick.model.AppInfo;
+import com.fongmi.android.autoclick.bean.AppInfo;
 import com.fongmi.android.autoclick.service.AutoService;
 
 import java.util.ArrayList;

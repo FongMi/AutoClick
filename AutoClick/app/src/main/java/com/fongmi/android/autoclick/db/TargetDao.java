@@ -5,7 +5,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.fongmi.android.autoclick.model.Target;
+import com.fongmi.android.autoclick.bean.Target;
 
 import java.util.List;
 

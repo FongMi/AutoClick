@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fongmi.android.autoclick.databinding.AdapterChooseBinding;
-import com.fongmi.android.autoclick.model.AppInfo;
+import com.fongmi.android.autoclick.bean.AppInfo;
 
 import java.util.ArrayList;
 import java.util.List;

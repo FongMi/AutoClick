@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.fongmi.android.autoclick.db.AppDatabase;
-import com.fongmi.android.autoclick.model.Target;
+import com.fongmi.android.autoclick.bean.Target;
 
 import java.util.List;
 
