@@ -7,8 +7,8 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import com.fongmi.android.autoclick.Constant;
 import com.fongmi.android.autoclick.Prefers;
 import com.fongmi.android.autoclick.Utils;
-import com.fongmi.android.autoclick.db.AppDatabase;
 import com.fongmi.android.autoclick.bean.Target;
+import com.fongmi.android.autoclick.db.AppDatabase;
 
 import java.util.Collections;
 import java.util.List;
