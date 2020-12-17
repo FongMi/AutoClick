@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,8 +31,7 @@ public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.O
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		binding = ActivityChooseBinding.inflate(getLayoutInflater());
-		View view = binding.getRoot();
-		setContentView(view);
+		setContentView(binding.getRoot());
 		initView();
 		initEvent();
 	}

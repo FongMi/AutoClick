@@ -35,7 +35,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
 				Utils.openAccessSetting();
 				return true;
 			case Constant.SETTING_BATTERY:
-				Utils.openBatterySetting();
+				Utils.checkBatterySetting();
 				return true;
 			case Constant.SETTING_WIFI:
 				return true;

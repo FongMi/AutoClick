@@ -11,9 +11,11 @@
     <string name="choose_keyword">关键字</string>
 
     <string name="setting_access">协助工具</string>
-    <string name="setting_battery">电池最佳化</string>
+    <string name="setting_battery">关闭电池最佳化</string>
+    <string name="setting_battery_closed">已关闭</string>
     <string name="setting_wifi">保持 Wi-Fi 连线</string>
 
+    <string name="accessibility_request">请开启自动点击服务</string>
     <string name="accessibility_desc">请选择应用程式并输入「关键字」\n\n需要应用程式在开机后启动请勾选「开机自启动」</string>
 
 </resources>
