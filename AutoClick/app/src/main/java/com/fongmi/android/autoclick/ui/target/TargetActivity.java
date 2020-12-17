@@ -79,4 +79,22 @@ public class TargetActivity extends AppCompatActivity {
 		SettingActivity.newInstance(this);
 		return true;
 	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		binding.adView.resume();
+	}
+
+	@Override
+	public void onPause() {
+		binding.adView.pause();
+		super.onPause();
+	}
+
+	@Override
+	public void onDestroy() {
+		binding.adView.destroy();
+		super.onDestroy();
+	}
 }
