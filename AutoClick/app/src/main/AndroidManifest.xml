@@ -17,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoClick">
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5487776820645763~2313975443" />
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/Theme.Splash">
@@ -28,6 +32,7 @@
 
         <activity
             android:name=".ui.target.TargetActivity"
+            android:hardwareAccelerated="true"
             android:label="@string/app_name" />
 
         <activity

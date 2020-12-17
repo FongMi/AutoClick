@@ -16,6 +16,7 @@ import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.databinding.ActivityTargetBinding;
 import com.fongmi.android.autoclick.ui.choose.ChooseActivity;
 import com.fongmi.android.autoclick.ui.setting.SettingActivity;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class TargetActivity extends AppCompatActivity {
@@ -37,15 +38,15 @@ public class TargetActivity extends AppCompatActivity {
 	}
 
 	private void initView() {
+		binding.adView.loadAd(new AdRequest.Builder().build());
 		setRecyclerView();
-		mAdapter.update();
 	}
 
 	private void setRecyclerView() {
-		mAdapter = new TargetAdapter();
 		binding.recycler.setHasFixedSize(true);
 		binding.recycler.setLayoutManager(new LinearLayoutManager(this));
-		binding.recycler.setAdapter(mAdapter);
+		binding.recycler.setAdapter(mAdapter = new TargetAdapter());
+		mAdapter.update();
 	}
 
 	public void onAdd(View view) {

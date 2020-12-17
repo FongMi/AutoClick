@@ -10,6 +10,8 @@ import android.net.wifi.WifiManager;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.ads.MobileAds;
+
 public class App extends Application {
 
 	private static App instance;
@@ -25,6 +27,7 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		MobileAds.initialize(this);
 		if (Prefers.isKeepWiFi()) registerNetwork();
 	}
 
