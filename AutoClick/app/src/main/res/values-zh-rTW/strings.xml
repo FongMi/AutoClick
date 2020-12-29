@@ -9,6 +9,8 @@
 
     <string name="choose_boot">開機自啟動</string>
     <string name="choose_keyword">關鍵字</string>
+    <string name="choose_system">顯示系統應用</string>
+    <string name="choose_user">隱藏系統應用</string>
 
     <string name="setting_access">協助工具</string>
     <string name="setting_battery">關閉電池最佳化</string>

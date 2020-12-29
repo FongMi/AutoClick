@@ -3,19 +3,20 @@ package com.fongmi.android.autoclick.ui.choose;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.fongmi.android.autoclick.R;
 import com.fongmi.android.autoclick.Utils;
+import com.fongmi.android.autoclick.bean.AppInfo;
+import com.fongmi.android.autoclick.bean.Target;
 import com.fongmi.android.autoclick.databinding.ActivityChooseBinding;
 import com.fongmi.android.autoclick.databinding.DialogChooseBinding;
 import com.fongmi.android.autoclick.db.AppDatabase;
-import com.fongmi.android.autoclick.bean.AppInfo;
-import com.fongmi.android.autoclick.bean.Target;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.OnItemClickListener {
@@ -38,7 +39,7 @@ public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.O
 
 	private void initView() {
 		setRecyclerView();
-		new Handler().postDelayed(() -> mAdapter.addAll(Utils.getApps()), 250);
+		mAdapter.getUser();
 	}
 
 	private void initEvent() {
@@ -63,5 +64,21 @@ public class ChooseActivity extends AppCompatActivity implements ChooseAdapter.O
 		AppDatabase.get().getTargetDao().insert(Target.create(item, keyword, boot));
 		setResult(RESULT_OK);
 		finish();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_choose, menu);
+		menu.findItem(R.id.system).setVisible(!mAdapter.isSystem());
+		menu.findItem(R.id.user).setVisible(mAdapter.isSystem());
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.system) mAdapter.getSystem();
+		else mAdapter.getUser();
+		invalidateOptionsMenu();
+		return true;
 	}
 }

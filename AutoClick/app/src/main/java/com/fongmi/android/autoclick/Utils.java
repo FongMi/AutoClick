@@ -2,7 +2,7 @@ package com.fongmi.android.autoclick;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ResolveInfo;
+import android.content.pm.ApplicationInfo;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
@@ -42,13 +42,13 @@ public class Utils {
 		return !isOnline();
 	}
 
-	public static List<AppInfo> getApps() {
-		List<AppInfo> list = new ArrayList<>();
-		Intent intent = new Intent(Intent.ACTION_MAIN, null);
-		intent.addCategory(Intent.CATEGORY_LAUNCHER);
-		List<ResolveInfo> packages = App.get().getPackageManager().queryIntentActivities(intent, 0);
-		for (ResolveInfo info : packages) list.add(AppInfo.get(info));
-		return list;
+	public static List<AppInfo> getApps(boolean system) {
+		List<AppInfo> items = new ArrayList<>();
+		for (ApplicationInfo info : App.get().getPackageManager().getInstalledApplications(0)) {
+			if (!system && (info.flags & ApplicationInfo.FLAG_SYSTEM) != 0) continue;
+			items.add(AppInfo.get(info));
+		}
+		return items;
 	}
 
 	public static boolean isAccessEnabled() {

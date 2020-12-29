@@ -1,5 +1,6 @@
 package com.fongmi.android.autoclick.ui.choose;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,19 +8,25 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.autoclick.databinding.AdapterChooseBinding;
+import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.bean.AppInfo;
+import com.fongmi.android.autoclick.databinding.AdapterChooseBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder> {
 
 	private OnItemClickListener mItemClickListener;
-	private List<AppInfo> mItems;
+	private final ExecutorService executor;
+	private final List<AppInfo> mItems;
+	private boolean system;
 
 	public ChooseAdapter() {
 		this.mItems = new ArrayList<>();
+		this.executor = Executors.newSingleThreadExecutor();
 	}
 
 	public interface OnItemClickListener {
@@ -32,7 +39,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 
 	class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-		private AdapterChooseBinding binding;
+		private final AdapterChooseBinding binding;
 
 		ViewHolder(AdapterChooseBinding binding) {
 			super(binding.getRoot());
@@ -46,11 +53,34 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 		}
 	}
 
-	public void addAll(List<AppInfo> items) {
+	public boolean isSystem() {
+		return system;
+	}
+
+	private void setSystem(boolean system) {
+		this.system = system;
+	}
+
+	public void getUser() {
+		executor.execute(() -> {
+			setSystem(false);
+			addAll(Utils.getApps(false));
+			new Handler().post(this::notifyDataSetChanged);
+		});
+	}
+
+	public void getSystem() {
+		executor.execute(() -> {
+			setSystem(true);
+			addAll(Utils.getApps(true));
+			new Handler().post(this::notifyDataSetChanged);
+		});
+	}
+
+	private void addAll(List<AppInfo> items) {
 		mItems.clear();
 		mItems.addAll(items);
 		AppInfo.Sorter.sort(mItems);
-		notifyDataSetChanged();
 	}
 
 	@Override

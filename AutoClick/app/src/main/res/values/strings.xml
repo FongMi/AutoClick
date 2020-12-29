@@ -9,6 +9,8 @@
 
     <string name="choose_boot">Start on boot</string>
     <string name="choose_keyword">Keyword</string>
+    <string name="choose_system">Show system</string>
+    <string name="choose_user">Hide system</string>
 
     <string name="setting_access">Accessibility</string>
     <string name="setting_battery">Disable battery optimization</string>

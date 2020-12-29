@@ -1,6 +1,6 @@
 package com.fongmi.android.autoclick.bean;
 
-import android.content.pm.ResolveInfo;
+import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
@@ -18,10 +18,10 @@ public class AppInfo {
 	private String name;
 	private String pack;
 
-	public static AppInfo get(ResolveInfo info) {
+	public static AppInfo get(ApplicationInfo info) {
 		Drawable icon = info.loadIcon(App.get().getPackageManager());
 		String name = info.loadLabel(App.get().getPackageManager()).toString();
-		String pack = info.activityInfo.packageName;
+		String pack = info.packageName;
 		return new AppInfo(name, pack, icon);
 	}
 

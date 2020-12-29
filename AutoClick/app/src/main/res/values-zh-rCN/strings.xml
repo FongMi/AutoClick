@@ -9,6 +9,8 @@
 
     <string name="choose_boot">开机自启动</string>
     <string name="choose_keyword">关键字</string>
+    <string name="choose_system">显示系统应用</string>
+    <string name="choose_user">隐藏系统应用</string>
 
     <string name="setting_access">协助工具</string>
     <string name="setting_battery">关闭电池最佳化</string>
