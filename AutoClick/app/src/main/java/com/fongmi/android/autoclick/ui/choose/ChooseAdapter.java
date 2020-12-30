@@ -1,6 +1,7 @@
 package com.fongmi.android.autoclick.ui.choose;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,13 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 	private OnItemClickListener mItemClickListener;
 	private final ExecutorService executor;
 	private final List<AppInfo> mItems;
+	private final Handler handler;
 	private boolean system;
 
 	public ChooseAdapter() {
 		this.mItems = new ArrayList<>();
 		this.executor = Executors.newSingleThreadExecutor();
+		this.handler = new Handler(Looper.getMainLooper());
 	}
 
 	public interface OnItemClickListener {
@@ -65,7 +68,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 		executor.execute(() -> {
 			setSystem(false);
 			addAll(Utils.getApps(false));
-			new Handler().post(this::notifyDataSetChanged);
+			handler.post(this::notifyDataSetChanged);
 		});
 	}
 
@@ -73,7 +76,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ViewHolder
 		executor.execute(() -> {
 			setSystem(true);
 			addAll(Utils.getApps(true));
-			new Handler().post(this::notifyDataSetChanged);
+			handler.post(this::notifyDataSetChanged);
 		});
 	}
 
