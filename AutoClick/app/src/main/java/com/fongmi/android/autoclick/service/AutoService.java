@@ -28,8 +28,10 @@ public class AutoService extends AccessibilityService {
 		for (AccessibilityNodeInfo info : find(item.getKeyword())) {
 			if (info.getPackageName().equals(item.getPack())) {
 				onClick(info);
+				info.recycle();
 			} else if (info.getPackageName().equals(Constant.SYSTEM_UI) && find(item.getName()).size() > 0) {
 				onClick(info);
+				info.recycle();
 			}
 		}
 	}
