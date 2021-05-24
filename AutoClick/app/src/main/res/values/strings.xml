@@ -20,6 +20,4 @@
     <string name="accessibility_request">Please enable Auto Click service</string>
     <string name="accessibility_desc">Please select the app and enter the "keywords"\n\nIf you need the app start on boot, please check "Start on boot"</string>
 
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-5487776820645763/2496155886</string>
-
 </resources>

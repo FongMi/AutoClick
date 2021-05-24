@@ -16,7 +16,6 @@ import com.fongmi.android.autoclick.Utils;
 import com.fongmi.android.autoclick.databinding.ActivityTargetBinding;
 import com.fongmi.android.autoclick.ui.choose.ChooseActivity;
 import com.fongmi.android.autoclick.ui.setting.SettingActivity;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class TargetActivity extends AppCompatActivity {
@@ -38,7 +37,6 @@ public class TargetActivity extends AppCompatActivity {
 	}
 
 	private void initView() {
-		binding.adView.loadAd(new AdRequest.Builder().build());
 		setRecyclerView();
 	}
 
@@ -78,23 +76,5 @@ public class TargetActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		SettingActivity.newInstance(this);
 		return true;
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		binding.adView.resume();
-	}
-
-	@Override
-	public void onPause() {
-		binding.adView.pause();
-		super.onPause();
-	}
-
-	@Override
-	public void onDestroy() {
-		binding.adView.destroy();
-		super.onDestroy();
 	}
 }
