@@ -1,5 +1,5 @@
 # AutoClick
 
 ## Screenshots
-![Screen](Screenshots/1.png)
-![Screen](Screenshots/2.png)
+![Screen](Misc/1.png)
+![Screen](Misc/2.png)
